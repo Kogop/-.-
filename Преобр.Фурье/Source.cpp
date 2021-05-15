@@ -36,11 +36,7 @@ void L() {
 	l[3] = sqrt(2 * alfa) * exp(-alfa * 3) * (1.0 - 6 * alfa * 3 + 6 * pow(alfa, 2) * pow(3, 2) - 4 * pow(alfa, 3) * pow(3, 3) / 3);
 	l[4] = sqrt(2 * alfa) * exp(-alfa * 4) * (1.0 - 8 * alfa * 4 + 12 * pow(alfa, 2) * pow(4, 2) - 16 * pow(alfa, 3) * pow(4, 3) / 3 + 2 * pow(alfa, 4) * pow(4, 4) / 3);*/
 }
-//
-//double f(int x) {
-//
-//	return l[x] * l[x+1];
-//}
+
 
 //function
 double f(double x)
@@ -65,10 +61,7 @@ int main() {
 		 cout << "tot " << i << " " << p.I(0, 100, 1) << endl;
 
 	}
-	//f(0);// f(2); f(3); f(1);
-
-	//cout << "tot = " << t.Trapize(0.001, 0, 1000) << endl;
-
+	
 
 
 	for (int i = 0; i < 5; i++)
