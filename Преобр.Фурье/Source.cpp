@@ -8,7 +8,7 @@ using namespace std;
 const int n = 100;
 double w[n], l[5];
 int a = 6, b = 15, alfa = 2 * a, x = 5;
-double PrInt[5];
+double Cn[5], w3[3], w4[4], w5[5], Eps3[3], Eps4[4], Eps5[5], E3[3], E4[4], E5[5], delta3[3], delta4[4], delta5[5];
 
 double Factorial(double n) {
 	return (n == 0) ? 1 : n * Factorial(n - 1);
@@ -45,29 +45,103 @@ double f(double x)
 	double f1 = l[y] * l[y + 1];
 	return f1;
 }
+double f1(double x) {
+	int y = round(x);
+	return pow(Eps3[y],2);
+}
+double f2(double x) {
+	int y = round(x);
+	return pow(Eps4[y],2);
+}
+double f3(double x) {
+	int y = round(x);
+	return pow(Eps4[y],2);
+}
 
 
 int main() {
 
-	wt();
-	L();
+	wt();//  w(t)
+	L(); // first 5 elements of Laplass
 	
-	//IntegraL t;
+	//IntegraL and cn ;
 	Gaus p;
 	for (int i = 0; i < 4; i++)
 	{
 		 f(i);
 		// cout << "tot " << i << " " << t.Simp(0.001, 0, 1000) << endl;
 		 cout << "tot " << i << " " << p.I(0, 100, 1) << endl;
+		 Cn[i] = p.I(0, 100, 1);
 
+	}
+
+
+	// w*N (t)
+	for (int i = 0; i < 2; i++)
+	{
+		w3[i] += pow(l[i], 2);
+	}
+	for (int i = 0; i < 3; i++)
+	{
+		w4[i] += pow(l[i], 2);
+	}
+	for (int i = 0; i < 4; i++)
+	{
+		w5[i] += pow(l[i], 2);
+	}
+
+	// error of approximation
+	for (int i = 0; i < 2; i++)
+	{
+		Eps3[i] +=	w[0] - w3[i];
+	}
+	for (int i = 0; i < 3; i++)
+	{
+		Eps4[i] += w[0] - w4[i];
+	}
+	for (int i = 0; i < 4; i++)
+	{
+		Eps5[i] += w[0] - w5[i];
 	}
 	
+	//part of the energy
+	for (int i = 0; i < 2; i++)
+	{
+		E3[i] += pow(l[i], 2);
+	}
+	for (int i = 0; i < 3; i++)
+	{
+		E4[i] += pow(l[i], 2);
+	}
+	for (int i = 0; i < 4; i++)
+	{
+		E5[i] += pow(l[i], 2);
+	}
+	//middle kvadrat error
+	f1(3);
+	for (int i = 0; i < 3; i++)
+	{
+		delta3[i] = p.I(0, 100, 1);
+
+	}
+	f2(4);
+	for (int i = 0; i < 3; i++)
+	{
+		delta4[i] = p.I(0, 100, 1);
+
+	}
+	f3(5);
+	for (int i = 0; i < 3; i++)
+	{
+		delta5[i] = p.I(0, 100, 1);
+
+	}
 
 
-	for (int i = 0; i < 5; i++)
+	/*for (int i = 0; i < 5; i++)
 	{
 		cout << l[i] << endl;
-	}
+	}*/
 
 
 
